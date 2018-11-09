@@ -48,9 +48,8 @@ else:
     print('not a number')
     
 ####################
-    
+while True:
 score = input("Enter Score: ")
-
 try:
     value = float(score)
 except:
