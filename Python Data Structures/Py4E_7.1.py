@@ -39,3 +39,21 @@ for line in fhand:
 #Using an input for the different Files
 fname = input("Input the file name")
 fhand = open(fname)
+count = 0
+for line in fhand:
+	if line.startswith('From:'):
+		count = count + 1
+print('There were ', count, 'subject lines in ', fname)
+
+# With errors in name use try
+fname = input("Input the file name")
+try:
+	fhand = open(fname)
+except:
+	print("File cannot be opened", fname)
+	quit()
+count = 0
+for line in fhand:
+	if line.startswith('From:'):
+		count = count + 1
+print('There were ', count, 'subject lines in ', fname)
