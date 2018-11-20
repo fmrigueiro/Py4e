@@ -26,3 +26,16 @@ for line in fhand:
 	line = line.rstrip()
 	if line.startswith('From:'):
 		print(line)
+
+#Using continue
+fhand = open('/Users/filipe/Documents/Python Learning/Py4e/Python Data Structures/mbox.txt')
+for line in fhand:
+	line = line.rstrip()
+	if not line.startswith('From:'):
+		continue
+	print(line)
+
+
+#Using an input for the different Files
+fname = input("Input the file name")
+fhand = open(fname)
