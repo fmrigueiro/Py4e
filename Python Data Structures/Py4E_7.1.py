@@ -57,3 +57,13 @@ for line in fhand:
 	if line.startswith('From:'):
 		count = count + 1
 print('There were ', count, 'subject lines in ', fname)
+
+# Exercise 7.1
+# Download words.txt from https://www.py4e.com/code3/words.txt
+url = 'https://www.py4e.com/code3/words.txt'
+
+fhand = open('/Users/filipe/Documents/Python Learning/Py4e/Python Data Structures/words.txt')
+for line in fhand:
+	line = line.rstrip()
+	line = line.upper()
+	print(line)
