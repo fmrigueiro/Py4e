@@ -67,3 +67,15 @@ for line in fhand:
 	line = line.rstrip()
 	line = line.upper()
 	print(line)
+
+# Exercise 7.2
+count = 0
+fname = open('/Users/filipe/Documents/Python Learning/Py4e/Python Data Structures/mbox-short.txt')
+for line in fname:
+	if not line.startswith("X-DSPAM-Confidence:"): continue
+	count = count + 1
+	num = line[len(line) - 7:len(line)]
+	num = float(num)
+	ave = (num + num) / count
+print("Average spam confidence:"
+ave)
