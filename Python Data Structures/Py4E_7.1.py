@@ -79,8 +79,17 @@ for line in fname:
 	count = float(count)
 print(line / count)
 
+# 7.2 Exercise
+
+fname = input("Enter file name: ")
+fh = open(fname)
 count = 0
-fname = open('/Users/filipe/Documents/Python Learning/Py4e/Python Data Structures/mbox-short.txt')
-for line in fname:
-	if line.startswith("X-DSPAM-Confidence:"):
-		print(line)
+tot = 0
+ans = 0
+for line in fh:
+	if not line.startswith("X-DSPAM-Confidence:"): continue
+	count = count + 1
+	num = float(line[21:])
+	tot = num + tot
+ans = tot / count
+print("Average spam confidence:", ans)
