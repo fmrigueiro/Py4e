@@ -30,3 +30,4 @@ fhand = urllib.request.urlopen("https://www.stjohnslabs.com/anti-phospho-nfkappa
 for line in fhand:
 	print(line.decode().strip())
 
+from bs4 import BeautifulSoup
