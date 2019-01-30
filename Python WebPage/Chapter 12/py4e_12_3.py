@@ -29,5 +29,3 @@ print(counts)
 fhand = urllib.request.urlopen("https://www.stjohnslabs.com/anti-phospho-nfkappab-p65-t505-antibody-stj91119.html")
 for line in fhand:
 	print(line.decode().strip())
-
-from bs4 import BeautifulSoup
