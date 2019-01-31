@@ -8,27 +8,18 @@ ctx = ssl.create_default_context()
 ctx.check_hostname = False
 ctx.verify_mode = ssl.CERT_NONE
 
+url = input('Enter Location: ')
+print('Retrieving ', url)
+urls_read = urllib.request.urlopen(url, context=ctx).read()
 
+tree = ET.fromstring(urls_read)
+print('Retrieved ', len(urls_read), ' characters')
 
-input = '''
-<stuff>
-  <users>
-    <user x="2">
-      <id>001</id>
-      <name>Chuck</name>
-    </user>
-    <user x="7">
-      <id>009</id>
-      <name>Brent</name>
-    </user>
-  </users>
-</stuff>'''
+lst = tree.findall('.//comment')
+print('Count: ', len(lst))
 
-stuff = ET.fromstring(input)
-lst = stuff.findall('users/user')
-print('User count:', len(lst))
-
+numbers = []
 for item in lst:
-    print('Name', item.find('name').text)
-    print('Id', item.find('id').text)
-    print('Attribute', item.get('x'))
+    number = int(item.find('count').text)
+    numbers.append(number)
+print('Sum: ', sum(numbers))

@@ -24,8 +24,8 @@ input = '''
   </users>
 </stuff>'''
 
-stuff = ET.fromstring(input)
-lst = stuff.findall('users/user')
+tree = ET.fromstring(input)
+lst = tree.findall('users/user')
 print('User count:', len(lst))
 
 for item in lst:
