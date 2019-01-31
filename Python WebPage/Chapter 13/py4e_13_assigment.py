@@ -2,14 +2,6 @@ import urllib.request, urllib.parse, urllib.error
 from bs4 import BeautifulSoup
 import ssl
 
-url = input('Enter - ')
-html = urllib.request.urlopen(url).read()
-soup = BeautifulSoup(html, 'html.parser')
-
-tags = soup('a')
-for tag in tags:
-	print(tag.get('href', None))
-
 #Ignore SSL certificate error
 ctx = ssl.create_default_context()
 ctx.check_hostname = False
@@ -19,6 +11,8 @@ url = input('Enter - ')
 html = urllib.request.urlopen(url, context=ctx).read()
 soup = BeautifulSoup(html, 'html.parser')
 
-tags = soup('a')
-for tag in tags:
-	print(tag.get('href', None))
+spans = soup('span')
+sum=0
+for span in spans:
+    sum=sum+int(span.contents[0])
+print(sum)
